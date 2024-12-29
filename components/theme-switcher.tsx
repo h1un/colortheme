@@ -1,102 +1,114 @@
 "use client"
 
-import { Moon, Sun } from 'lucide-react'
+import * as React from "react"
+import { Moon, Sun, Palette } from 'lucide-react'
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { useState } from 'react'
-
-const colors = [
-    { name: 'Zinc', value: 'zinc', class: 'bg-zinc-900' },
-    { name: 'Red', value: 'red', class: 'bg-red-500' },
-    { name: 'Rose', value: 'rose', class: 'bg-rose-500' },
-    { name: 'Orange', value: 'orange', class: 'bg-orange-500' },
-    { name: 'Green', value: 'green', class: 'bg-green-500' },
-    { name: 'Blue', value: 'blue', class: 'bg-blue-500' },
-    { name: 'Yellow', value: 'yellow', class: 'bg-yellow-500' },
-    { name: 'Violet', value: 'violet', class: 'bg-violet-500' },
-]
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from "@/components/ui/popover"
+import { cn } from "@/lib/utils"
 
 export function ThemeSwitcher() {
-    const [isOpen, setIsOpen] = useState(false)
+    const [mounted, setMounted] = React.useState(false)
     const { theme, setTheme } = useTheme()
 
-    return (
-        <div className="relative">
-            <Button
-                variant="outline"
-                size="icon"
-                onClick={() => setIsOpen(!isOpen)}
-                className="relative"
-            >
-                <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                <span className="sr-only">Toggle theme</span>
-            </Button>
+    React.useEffect(() => {
+        setMounted(true)
+    }, [])
 
-            {isOpen && (
-                <Card className="absolute right-0 top-[calc(100%+0.5rem)] w-[320px] z-50">
-                    <CardHeader>
-                        <CardTitle>테마 커스터마이저</CardTitle>
-                        <CardDescription>
-                            컴포넌트 색상을 커스터마이즈하세요.
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-6">
-                        <div className="space-y-2">
-                            <h3 className="text-lg font-medium">색상</h3>
-                            <div className="grid grid-cols-2 gap-2">
-                                {colors.map((color) => (
+    if (!mounted) {
+        return null
+    }
+
+    const colors = [
+        { name: 'Default', light: 'light', dark: 'dark', bg: 'bg-slate-900' },
+        { name: 'Red', light: 'light-red', dark: 'dark-red', bg: 'bg-red-500' },
+        { name: 'Blue', light: 'light-blue', dark: 'dark-blue', bg: 'bg-blue-500' },
+        { name: 'Orange', light: 'light-orange', dark: 'dark-orange', bg: 'bg-orange-500' },
+        { name: 'Green', light: 'light-green', dark: 'dark-green', bg: 'bg-green-500' },
+        { name: 'Yellow', light: 'light-yellow', dark: 'dark-yellow', bg: 'bg-yellow-500' },
+        { name: 'Violet', light: 'light-violet', dark: 'dark-violet', bg: 'bg-violet-500' },
+    ]
+
+    const isDark = theme?.includes('dark')
+
+    return (
+        <Popover>
+            <PopoverTrigger asChild>
+                <Button variant="outline" size="icon">
+                    {theme?.includes('light') && <Sun className="h-[1.2rem] w-[1.2rem]" />}
+                    {theme?.includes('dark') && <Moon className="h-[1.2rem] w-[1.2rem] text-foreground" />}
+                    {(!theme || theme === 'system') && <Palette className="h-[1.2rem] w-[1.2rem]" />}
+                    <span className="sr-only">테마 설정</span>
+                </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-80">
+                <div className="space-y-4">
+                    <div>
+                        <h4 className="font-medium leading-none mb-3">테마 설정</h4>
+                        <p className="text-sm text-muted-foreground mb-4">
+                            원하는 색상과 모드를 선택하세요.
+                        </p>
+                        <div className="grid grid-cols-2 gap-2">
+                            <Button
+                                variant="outline"
+                                size="sm"
+                                className={cn(
+                                    "justify-start",
+                                    !isDark && "border-2 border-primary"
+                                )}
+                                onClick={() => setTheme(theme?.replace('dark', 'light') || 'light')}
+                            >
+                                <Sun className="h-4 w-4 mr-2" />
+                                라이트
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="sm"
+                                className={cn(
+                                    "justify-start",
+                                    isDark && "border-2 border-primary"
+                                )}
+                                onClick={() => setTheme(theme?.replace('light', 'dark') || 'dark')}
+                            >
+                                <Moon className="h-4 w-4 mr-2" />
+                                다크
+                            </Button>
+                        </div>
+                    </div>
+                    <div className="space-y-2">
+                        <h4 className="font-medium leading-none mb-3">색상</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                            {colors.map((color) => {
+                                const isSelected = theme === color.light || theme === color.dark;
+                                const currentTheme = isDark ? color.dark : color.light
+                                return (
                                     <Button
-                                        key={color.value}
+                                        key={color.name}
                                         variant="outline"
-                                        className={`h-12 justify-start gap-2 ${
-                                            theme?.includes(color.value) ? 'border-2 border-primary' : ''
-                                        }`}
-                                        onClick={() => {
-                                            if (color.value === 'zinc') {
-                                                setTheme(theme?.includes('dark') ? 'dark' : 'light')
-                                            } else {
-                                                setTheme(`${theme?.includes('dark') ? 'dark' : 'light'}-${color.value}`)
-                                            }
-                                        }}
+                                        size="sm"
+                                        className={cn(
+                                            "justify-start",
+                                            (isSelected || (color.name === 'Default' && theme === (isDark ? 'dark' : 'light'))) && "border-2 border-primary"
+                                        )}
+                                        onClick={() => setTheme(currentTheme)}
                                     >
-                                        <span className={`h-4 w-4 rounded-full ${color.class}`} />
+                                        <div className={cn(
+                                            "h-4 w-4 rounded-full mr-2",
+                                            color.bg
+                                        )} />
                                         {color.name}
                                     </Button>
-                                ))}
-                            </div>
+                                )}
+                            )}
                         </div>
-
-                        <div className="space-y-2">
-                            <h3 className="text-lg font-medium">모드</h3>
-                            <div className="grid grid-cols-2 gap-2">
-                                <Button
-                                    variant="outline"
-                                    className={`justify-start gap-2 ${
-                                        theme?.includes('light') ? 'border-2 border-primary' : ''
-                                    }`}
-                                    onClick={() => setTheme(theme?.replace('dark', 'light') || 'light')}
-                                >
-                                    <Sun className="h-4 w-4" />
-                                    Light
-                                </Button>
-                                <Button
-                                    variant="outline"
-                                    className={`justify-start gap-2 ${
-                                        theme?.includes('dark') ? 'border-2 border-primary' : ''
-                                    }`}
-                                    onClick={() => setTheme(theme?.replace('light', 'dark') || 'dark')}
-                                >
-                                    <Moon className="h-4 w-4" />
-                                    Dark
-                                </Button>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
-            )}
-        </div>
+                    </div>
+                </div>
+            </PopoverContent>
+        </Popover>
     )
 }
 
