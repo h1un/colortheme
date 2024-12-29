@@ -10,6 +10,18 @@ export default {
   theme: {
   	extend: {
   		colors: {
+			periwinkle: {
+				50: '#f5f5fe',
+				100: '#ebebfc',
+				200: '#d6d7fa',
+				300: '#c2c4f7',
+				400: '#adb0f5',
+				500: '#b4b6f9',
+				600: '#8e90c7',
+				700: '#686a95',
+				800: '#424463',
+				900: '#1c1d31',
+                },
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

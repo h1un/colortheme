@@ -16,7 +16,9 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
         'light-orange', 'dark-orange',
         'light-green', 'dark-green',
         'light-yellow', 'dark-yellow',
-        'light-violet', 'dark-violet']}
+        'light-violet', 'dark-violet',
+        'light-periwinkle', 'dark-periwinkle',
+      ]}
       {...props}
     >
       {children}
