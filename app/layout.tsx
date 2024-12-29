@@ -1,7 +1,8 @@
 import { ThemeProvider } from "@/providers/theme-provider"
-import { ThemeDemo } from "@/components/theme-demo"
+import { ThemeDemo } from "@/components/sample/theme-demo"
 import "./globals.css"
-import {ComprehensiveThemeShowcase} from "@/components/comprehensive-theme-showcase";
+import {ComprehensiveThemeShowcase} from "@/components/sample/comprehensive-theme-showcase";
+import Header from "@/components/layout/header";
 
 export default function RootLayout({
   children,
@@ -12,6 +13,7 @@ export default function RootLayout({
     <html lang="ko" suppressHydrationWarning>
       <body>
         <ThemeProvider>
+          <Header isAlwaysOpaque={true} showDropdownIcons={true}/>
           <ThemeDemo />
             <ComprehensiveThemeShowcase/>
 

@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ThemeSwitcher } from "./theme-switcher"
+import { ThemeSwitcher } from "../theme-switcher"
 import { Line, LineChart, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts"
 import { SubscriptionCard } from "./subscription-card"
 import { ChatSupport } from "./chat-support"
