@@ -64,17 +64,17 @@ const Header = ({
                                     className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-${foregroundColor} transition-all group-hover:w-full`}></span>
                             </button>
                             <div
-                                className="absolute -translate-x-1/2 left-1/2 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out transform group-hover:translate-y-1">
+                                className="absolute -translate-x-1/2 left-1/2 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out transform group-hover:translate-y-1">
                                 <div className="py-1" role="menu" aria-orientation="vertical"
                                      aria-labelledby="options-menu">
                                     <Link href="/services/web"
-                                          className="block px-4 py-3 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200"
-                                          role="menuitem">인사말</Link>
+                                          className={`block px-4 py-3 text-sm hover:text-${foregroundColor}/80 text-${foregroundColor}/60 transition-colors duration-200`}
+                                          role="menuitem">인사말 </Link>
                                     <Link href="/services/mobile"
-                                          className="block px-4 py-3 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200"
+                                          className={`block px-4 py-3 text-sm hover:text-${foregroundColor}/80 text-${foregroundColor}/60 transition-colors duration-200`}
                                           role="menuitem">구성원</Link>
                                     <Link href="/services/consulting"
-                                          className="block px-4 py-3 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200"
+                                          className={`block px-4 py-3 text-sm hover:text-${foregroundColor}/80 text-${foregroundColor}/60 transition-colors duration-200`}
                                           role="menuitem">연혁</Link>
                                 </div>
                             </div>
@@ -84,20 +84,21 @@ const Header = ({
                                 className={`transition-colors hover:text-${foregroundColor}/80 text-${foregroundColor}/60 flex items-center relative`}>
                                 제품소개
                                 {showDropdownIcons && <ChevronDown className="ml-1 h-4 w-4"/>}
-                                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-${foregroundColor} transition-all group-hover:w-full`}></span>
+                                <span
+                                    className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-${foregroundColor} transition-all group-hover:w-full`}></span>
                             </button>
                             <div
                                 className="absolute -translate-x-1/2 left-1/2 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out transform group-hover:translate-y-1">
                                 <div className="py-1" role="menu" aria-orientation="vertical"
                                      aria-labelledby="options-menu">
                                     <Link href="#"
-                                          className="block px-4 py-3 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200"
+                                          className={`block px-4 py-3 text-sm hover:text-${foregroundColor}/80 text-${foregroundColor}/60 transition-colors duration-200`}
                                           role="menuitem">제품소개1</Link>
                                     <Link href="#"
-                                          className="block px-4 py-3 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200"
+                                          className={`block px-4 py-3 text-sm hover:text-${foregroundColor}/80 text-${foregroundColor}/60 transition-colors duration-200`}
                                           role="menuitem">제품소개2</Link>
                                     <Link href="#"
-                                          className="block px-4 py-3 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200"
+                                          className={`block px-4 py-3 text-sm hover:text-${foregroundColor}/80 text-${foregroundColor}/60 transition-colors duration-200`}
                                           role="menuitem">제품소개3</Link>
                                 </div>
                             </div>
@@ -115,13 +116,13 @@ const Header = ({
                                 <div className="py-1" role="menu" aria-orientation="vertical"
                                      aria-labelledby="options-menu">
                                     <Link href="#"
-                                          className="block px-4 py-3 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200"
+                                          className="block px-4 py-3 text-sm text-${foregroundColor} hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200"
                                           role="menuitem">공지사항</Link>
                                     <Link href="#"
-                                          className="block px-4 py-3 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200"
+                                          className={`block px-4 py-3 text-sm hover:text-${foregroundColor}/80 text-${foregroundColor}/60 transition-colors duration-200`}
                                           role="menuitem">Q&A</Link>
                                     <Link href="#"
-                                          className="block px-4 py-3 text-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200"
+                                          className={`block px-4 py-3 text-sm hover:text-${foregroundColor}/80 text-${foregroundColor}/60 transition-colors duration-200`}
                                           role="menuitem">문의하기</Link>
                                 </div>
                             </div>
