@@ -13,7 +13,8 @@ export default function RootLayout({
     <html lang="ko" suppressHydrationWarning>
       <body>
         <ThemeProvider>
-          <Header isAlwaysOpaque={true} showDropdownIcons={true}/>
+          <Header isAlwaysOpaque={false} showDropdownIcons={true}
+          backgroundColor={"orange-100"}/>
           <ThemeDemo />
             <ComprehensiveThemeShowcase/>
 
