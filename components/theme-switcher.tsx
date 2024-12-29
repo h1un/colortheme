@@ -25,6 +25,7 @@ const colorSchemes: ColorScheme[] = [
     { name: 'yellow', bg: 'bg-yellow-500' },
     { name: 'violet', bg: 'bg-violet-500' },
     { name: 'periwinkle', bg: 'bg-periwinkle-500' },
+    { name: 'pink', bg: 'bg-periwinkle-500' },
 ]
 
 export function ThemeSwitcher() {
@@ -37,6 +38,10 @@ export function ThemeSwitcher() {
     useEffect(() => {
         setMounted(true)
     }, [])
+
+    useEffect(() => {
+        console.log(theme)
+    }, [theme]);
 
     const handleThemeChange = (colorScheme: string, mode: 'light' | 'dark') => {
         setTheme(colorScheme === 'default' ? mode : `${mode}-${colorScheme}`)

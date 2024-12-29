@@ -450,10 +450,71 @@
         --ring: 239 100% 40%;
     }
 
+    .light-pink {
+        --background: 0 0% 100%;
+        --foreground: 0 0% 5%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 5%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 5%;
+
+        --primary: 336 100% 62%;
+        --primary-foreground: 0 0% 98%;
+
+        --secondary: 0 0% 96%;
+        --secondary-foreground: 0 0% 5%;
+
+        --muted: 0 0% 96%;
+        --muted-foreground: 0 0% 45%;
+
+        --accent: 0 0% 96%;
+        --accent-foreground: 0 0% 5%;
+
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 98%;
+
+        --border: 0 0% 92%;
+        --input: 0 0% 85%;
+        --ring: 0 0% 76%;
+
+        --radius: 0.5rem;
+    }
+
+    .dark-pink {
+        --background: 240 3% 6%;
+        --foreground: 0 0% 98%;
+
+        --card: 240 6% 7%;
+        --card-foreground: 0 0% 98%;
+
+        --popover: 240 6% 7%;
+        --popover-foreground: 0 0% 98%;
+
+        --primary: 238 100% 85%;
+        --primary-foreground: 0 0% 2%;
+
+        --secondary: 240 5% 15%;
+        --secondary-foreground: 0 0% 98%;
+
+        --muted: 240 5% 22%;
+        --muted-foreground: 240 5% 49%;
+
+        --accent: 238 45% 14%;
+        --accent-foreground: 0 0% 98%;
+
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 98%;
+
+        --border: 240 5% 12%;
+        --input: 240 4% 18%;
+        --ring: 239 100% 40%;
+    }
+
     * {
         /*테마 모드가 변경 될떄*/
-        transition: background-color 0.3s ease,
-        color 0.1s ease;
+        transition: background-color 0.3s ease, color 0.1s ease;
     }
 }
 
