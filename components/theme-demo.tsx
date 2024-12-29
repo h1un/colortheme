@@ -8,6 +8,8 @@ import { SubscriptionCard } from "./subscription-card"
 import { ChatSupport } from "./chat-support"
 import { CookieSettings } from "./cookie-settings"
 import { PaymentMethod } from "./payment-method"
+import {ColorDemo} from "@/components/color-demo";
+import {ComprehensiveThemeShowcase} from "@/components/comprehensive-theme-showcase";
 
 const chartData = [
   { month: "Jan", value: 100 },
@@ -36,8 +38,11 @@ export function ThemeDemo() {
             <Button variant="default">Default</Button>
             <Button variant="secondary">Secondary</Button>
             <Button variant="destructive">Destructive</Button>
-            <Button variant="outline">Outline</Button>
+            <Button variant="outlineMute">outlineMute</Button>
+            <Button variant="outline">outline</Button>
+            <Button variant="outlineHoverFill">outlineHoverFill</Button>
             <Button variant="ghost">Ghost</Button>
+            <Button variant="link">link</Button>
           </CardContent>
         </Card>
 

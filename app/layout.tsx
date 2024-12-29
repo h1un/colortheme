@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@/providers/theme-provider"
 import { ThemeDemo } from "@/components/theme-demo"
 import "./globals.css"
+import {ComprehensiveThemeShowcase} from "@/components/comprehensive-theme-showcase";
 
 export default function RootLayout({
   children,
@@ -12,6 +13,8 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <ThemeDemo />
+            <ComprehensiveThemeShowcase/>
+
           {children}
         </ThemeProvider>
       </body>
